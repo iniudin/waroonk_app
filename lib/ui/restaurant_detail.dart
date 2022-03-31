@@ -68,18 +68,18 @@ class RestaurantDetailPage extends StatelessWidget {
                     "Deskripsi",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  Text(
-                    restaurant.description,
-                    style: Theme.of(context).textTheme.bodyText2,
+                  Card(
+                    child: Text(
+                      restaurant.description,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   ),
                   const Divider(color: Colors.grey),
                   Text(
                     "Menu Makanan",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  ListView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
+                  Column(
                     children: <Widget>[
                       ...restaurant.menus.foods.map((item) {
                         return Card(child: ListTile(title: Text(item.name)));
@@ -91,9 +91,7 @@ class RestaurantDetailPage extends StatelessWidget {
                     "Menu Minuman",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  ListView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
+                  Column(
                     children: <Widget>[
                       ...restaurant.menus.drinks.map((item) {
                         return Card(child: ListTile(title: Text(item.name)));
